@@ -1,17 +1,21 @@
 package stats
 
-import ("github.com/siavash-art/bank/pkg/types")
+import "github.com/siavash-art/bank/v2/pkg/types"
 
 //Avg get average payment
 func Avg(payments []types.Payment) types.Money {
-
+	
 	total := types.Money(0)
-
-	for _, payment := range payments {
-		total += payment.Amount
+	pCount := types.Money(0)
+	for _, payment := range payments {		
+		
+		if payment.Status != types.StatusFail {
+			total += payment.Amount		
+			pCount++
+		}					
 	}
 
-	average := total / types.Money(len(payments))
+	average := total / pCount
 
 	return average
 }
@@ -22,7 +26,7 @@ func TotalInCategory(payments []types.Payment, category types.Category) types.Mo
 	total := types.Money(0)
 
 	for _, payment := range payments {
-		if payment.Category == category {
+		if payment.Category == category && payment.Status != types.StatusFail {
 			total += payment.Amount
 		}
 	}

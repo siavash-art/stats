@@ -1,4 +1,2 @@
-github.com/siavash-art/bank v0.0.0-20200925183514-022eda040130 h1:SlaQZgYAv90tqI1lyyyyM+vf1K3c1aU9lQv7GgMNIYU=
-github.com/siavash-art/bank v0.0.0-20200925183514-022eda040130/go.mod h1:+NlN9IBFGAUchzLvRUeHzxH0XaNk8673wPgevxKSD9w=
-github.com/siavash-art/bank v0.0.0-20200925200631-d61a7eb4c5e5 h1:C3Xb7fNui+su1gmEvtMxq1CXExkZbTR8cz16CtfcmF8=
-github.com/siavash-art/bank v0.0.0-20200925200631-d61a7eb4c5e5/go.mod h1:+NlN9IBFGAUchzLvRUeHzxH0XaNk8673wPgevxKSD9w=
+github.com/siavash-art/bank/v2 v2.0.0 h1:utyJFgQZEDbJAHKH52eglEUIRKFeVKWIQL+drdMw9MM=
+github.com/siavash-art/bank/v2 v2.0.0/go.mod h1:GufwrFq2Wq6QbjQ85CsknUHkvAGGBkd6fPNVea9B4ps=
