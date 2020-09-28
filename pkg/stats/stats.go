@@ -47,6 +47,7 @@ func FilterByCategory (payments []types.Payment, category types.Category) []type
 
 	return filtered
 }
+
 // CategoriesTotal return sum of payment in cayegory
 func CategoriesTotal(payments []types.Payment) map[types.Category]types.Money {
 	
@@ -54,6 +55,24 @@ func CategoriesTotal(payments []types.Payment) map[types.Category]types.Money {
 
 	for _, payment := range payments {
 		categories[payment.Category] += payment.Amount
+	}
+
+	return categories
+}
+
+// CategoriesAvg return avg of payment in category
+func CategoriesAvg(payments []types.Payment) map[types.Category]types.Money {
+	
+	categories := map[types.Category]types.Money{}
+	paymentCountIncategory := map[types.Category]types.Money{}
+
+	for _, payment := range payments {
+		categories[payment.Category] += payment.Amount 
+		paymentCountIncategory[payment.Category]++		
+	}
+
+	for key := range categories {
+		categories[key] /= paymentCountIncategory[key]
 	}
 
 	return categories
