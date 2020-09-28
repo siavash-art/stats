@@ -14,8 +14,7 @@ func TestFilterByCategory_nil(t *testing.T) {
 
 	if len(result) != 0 {
 		t.Error("result len !=0")
-	}
-	
+	}	
 }
 
 func TestFilterByCategory_empty(t *testing.T) {
@@ -114,5 +113,29 @@ func TestFilterByCategories_Avg(t *testing.T) {
 
 	if !reflect.DeepEqual(expected, result) {
 		t.Errorf("invalid result, expected: %v, actual: %v", expected, result)
+	}	
+}
+
+func TestFilterByCategories_PeriodsDynamic(t *testing.T) {
+
+	firstPayments := map[types.Category]types.Money {
+		"auto": 10,
+		"food": 20,				
+	}
+	secondPayments := map[types.Category]types.Money {
+		"auto": 10,
+		"food": 25,			
+		"mobile": 5,			
+	}
+	expected := map[types.Category]types.Money {
+		"auto": 0,
+		"food": 5,
+		"mobile": 5,		
+	}
+
+	result := PeriodsDynamic(firstPayments, secondPayments)
+
+	if !reflect.DeepEqual(expected, result) {
+		t.Errorf("expected: %v, actual: %v", expected, result)
 	}	
 }
